@@ -53,6 +53,7 @@ class Guardian(context: ActorContext[Nothing]) extends AbstractBehavior[Nothing]
 
   startAkkaManagement()
 
+  // tag::ItemPopularityProjection[]
   val session = CassandraSessionRegistry(system).sessionFor("akka.projection.cassandra.session-config") // <1>
   // use same keyspace for the item_popularity table as the offset store
   val itemPopularityKeyspace = system.settings.config.getString("akka.projection.cassandra.offset-store.keyspace")
@@ -64,7 +65,6 @@ class Guardian(context: ActorContext[Nothing]) extends AbstractBehavior[Nothing]
   ShoppingCartServer.start(grpcInterface, grpcPort, system, itemPopularityRepository)
 
   ShoppingCart.init(system)
-  // tag::ItemPopularityProjection[]
   ItemPopularityProjection.init(system, itemPopularityRepository) // <3>
   // end::ItemPopularityProjection[]
 
@@ -72,6 +72,7 @@ class Guardian(context: ActorContext[Nothing]) extends AbstractBehavior[Nothing]
   PublishEventsProjection.init(system)
   // end::PublishEventsProjection[]
 
+  // tag::SendOrderProjection[]
   val orderService = orderServiceClient(system)
   SendOrderProjection.init(system, orderService)
   // end::SendOrderProjection[]
