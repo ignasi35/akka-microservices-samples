@@ -16,7 +16,7 @@ Service discovery
 
 == gRPC
 
-link:grpc-services.adoc#_grpc_clients[See gRPC]
+xref:deployment/grpc-services.adoc#_grpc_clients[See gRPC]
 
 == Kafka
 

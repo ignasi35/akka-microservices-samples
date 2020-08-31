@@ -5,7 +5,7 @@
 
 include::partial$include.adoc[]
 
-Microservices should be xref:isolation.adoc[isolated] and xref:autonomy.adoc[autonomous].
+Microservices should be xref:properties/isolation.adoc[isolated] and xref:properties/autonomy.adoc[autonomous].
 
 Mulitple services communicate with each other (*inter-service*) by sending messages over a network. To achieve performance and resilience, you will often run multiple instances of the same service, typically on different nodes, and such *intra-service* communication also goes over the network. In addition, third-party and/or legacy systems might also consume or provide information for your microservice system.
 
@@ -21,7 +21,7 @@ Nodes of a single service (collectively called a cluster) require less decouplin
 
 * link:{akka}/typed/index-cluster.html[Akka Cluster] provides multiple features (pub-sub, distribute-data, sharding, distributed streams,...) for intra-service communication.
 
-* Databases and other persistent storage can be seen as another way that nodes of a service communicate. For microservices that use persistent entities, we encourage xref:event-sourcing.adoc[Event Sourcing] , which also takes advantage of asynchronous communication and provides guarantees via an event log.
+* Databases and other persistent storage can be seen as another way that nodes of a service communicate. For microservices that use persistent entities, we encourage xref:techniques/event-sourcing.adoc[Event Sourcing] , which also takes advantage of asynchronous communication and provides guarantees via an event log.
 
 This diagram illustrates each of these types of inter- and intra-service communication in a Lagom system distributed across three servers. In the example, the Order service publishes to one or more Kafka topics, while the User service subscribes to consume the information. The User service communicates with other User service instances (cluster members) using Akka remoting. The Shipping service and User service exchange information by streaming it in service calls.
 

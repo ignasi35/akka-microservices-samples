@@ -14,18 +14,18 @@ Reactive Microsystems, and a high level overview of the key concepts that power 
 
 == Properties of Reactive Microsystems
 
-* xref:isolation.adoc[]
-* xref:autonomy.adoc[]
-* xref:mobility.adoc[]
+* xref:properties/isolation.adoc[]
+* xref:properties/autonomy.adoc[]
+* xref:properties/mobility.adoc[]
 * Single Responsibility
-* xref:message-driven-event-driven.adoc[Event-Driven]
+* xref:properties/message-driven-event-driven.adoc[Event-Driven]
 * State Ownership
 
 == Patterns and techniques recommended for Reactive Microsystems
 
-* xref:event-sourcing.adoc[]
-* xref:cqrs.adoc[]
-* xref:message-driven-event-driven.adoc[Message Driven]
+* xref:techniques/event-sourcing.adoc[]
+* xref:techniques/cqrs.adoc[]
+* xref:properties/message-driven-event-driven.adoc[Message Driven]
 * Commands and Events - Event Storming
 * Memory Image Pattern
 * Circuit Breakers
@@ -48,7 +48,7 @@ overview of some features in the Akka toolkit you are likely to use:
 * Actor model
 ** Supervision
 * Akka Streams
-* xref:clustering.adoc[]
+* xref:implementation/clustering.adoc[]
 ** Sharding
 ** SBR
 * Akka Persistence
@@ -57,11 +57,11 @@ overview of some features in the Akka toolkit you are likely to use:
 
 == Deployment Concerns
 
-* xref:services.adoc[]
-** xref:service-discovery.adoc[]
-** xref:service-clients.adoc[]
-** xref:grpc-services.adoc[]
-* xref:internal-and-external-communication.adoc[]
+* xref:deployment/services.adoc[]
+** xref:deployment/service-discovery.adoc[]
+** xref:deployment/service-clients.adoc[]
+** xref:deployment/grpc-services.adoc[]
+* xref:deployment/internal-and-external-communication.adoc[]
 * Akka Management
 ** Management
 ** Bootstrap

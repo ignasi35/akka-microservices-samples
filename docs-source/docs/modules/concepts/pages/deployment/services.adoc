@@ -26,7 +26,7 @@ Protobuf can also be used as a serialization format for messages on Kafka topics
 
 Akka gRPC adds plug-ins to the build system of the application to generate Java or Scala classes corresponding to the Protobuf schema.
 
-xref:grpc-services.adoc[gRPC services] explains how to use gRPC for service APIs.
+xref:deployment/grpc-services.adoc[gRPC services] explains how to use gRPC for service APIs.
 
 === HTTP with JSON / RESTful
 

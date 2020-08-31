@@ -26,7 +26,7 @@ In Event Driven systems, components announce a location where they expose their 
 
 As discussed above, in Message Driven systems, each component send items to a fixed recipient. In Event Driven systems, on the other hand, each component produces items of data with a fixed sender and shares them with any consumer. This comparison, though, can be misleading: the term 'Message Driven' refers to a building block on a system and 'Event Driven' refers to a higher level property of a system. So, using Message Driven tools we can build an Event Driven system.
 
-There are multiple types of messages. A categorization of messages in a xref:cqrs.adoc[CQRS]/xref:event-sourcing[ES] application is the following:
+There are multiple types of messages. A categorization of messages in a xref:techniques/cqrs.adoc[CQRS]/xref:techniques/event-sourcing[ES] application is the following:
 
 - *Commands*: a message sent to produce a change on the state. The receiving component, if the command is valid, will update its state.
 - *Events*: a message emitted by a component when its state changed. The event includes the necessary data to evolve the older state to the newer state. The event is a message sent to the publishing infrastucture where consumers may later retrieve it.
