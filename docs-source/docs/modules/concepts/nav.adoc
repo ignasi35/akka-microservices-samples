@@ -19,6 +19,7 @@
 ** Reactive Streams
 *** Backpressure
 ** xref:ddd.adoc[Brief Summary of DDD concepts]
+** xref:consumer-only-services.adoc[]
 
 * Implementation Concepts
 ** Actor model

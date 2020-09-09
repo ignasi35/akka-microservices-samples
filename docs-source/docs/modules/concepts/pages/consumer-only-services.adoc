@@ -1,0 +1,14 @@
+= Consumer-only Services
+:toc:
+:toc-title: ON THIS PAGE
+:toclevels: 2
+
+include::partial$include.adoc[]
+
+In architectures based on microservices, the most common structure of a microservice includes:
+
+. a blocking API (REST, gRPC, HTTP)
+. interaction with a broker (emit or consume messages)
+
+Sometimes, you need to adapt data from a broker topic into a new format or maybe create a service at the edge of your application only adapt data into a third party format or push it into a third party system. You are not adding any logic other than guaranteeing data moves from a storage into another. These services usually provide no endpoints to be consumed, nor they emit new data in a broker.
+
