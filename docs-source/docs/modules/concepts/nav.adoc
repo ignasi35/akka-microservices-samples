@@ -1,5 +1,5 @@
 .xref:index.adoc[Concepts]
-* Properties of Reactive Microsystems
+* Properties of Reactive
 ** xref:isolation.adoc[]
 ** xref:autonomy.adoc[]
 ** xref:mobility.adoc[]
@@ -7,7 +7,7 @@
 ** xref:message-driven-event-driven.adoc[Event-Driven]
 ** xref:state-ownership.adoc[]
 
-* Patterns and techniques recommended for Reactive Microsystems
+* Patterns and techniques for Reactive
 ** xref:slicing-the-monolith.adoc[]
 ** xref:event-sourcing.adoc[]
 ** xref:cqrs.adoc[]
@@ -20,7 +20,7 @@
 *** Backpressure
 ** xref:ddd.adoc[Brief Summary of DDD concepts]
 
-* Implementation Concepts
+* Tools for Reactive
 ** Actor model
 *** Supervision
 ** Akka Streams
@@ -30,7 +30,7 @@
 ** Akka Persistence
 ** Akka Projections
 
-* Deployment Concerns
+* Deploying Reactive
 ** xref:services.adoc[]
 *** xref:service-discovery.adoc[]
 *** xref:service-clients.adoc[]
