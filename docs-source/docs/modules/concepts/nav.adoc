@@ -1,5 +1,5 @@
 .xref:index.adoc[Concepts]
-* Properties of Reactive
+* What is Reactive?
 ** xref:isolation.adoc[]
 ** xref:autonomy.adoc[]
 ** xref:mobility.adoc[]
@@ -7,7 +7,7 @@
 ** xref:message-driven-event-driven.adoc[Event-Driven]
 ** xref:state-ownership.adoc[]
 
-* Patterns and techniques for Reactive
+* How to design Reactive?
 ** xref:slicing-the-monolith.adoc[]
 ** xref:event-sourcing.adoc[]
 ** xref:cqrs.adoc[]
@@ -19,8 +19,9 @@
 ** Reactive Streams
 *** Backpressure
 ** xref:ddd.adoc[Brief Summary of DDD concepts]
+** xref:internal-and-external-communication.adoc[]
 
-* Tools for Reactive
+* What is in Akka for Reactive?
 ** Actor model
 *** Supervision
 ** Akka Streams
@@ -29,17 +30,16 @@
 *** SBR
 ** Akka Persistence
 ** Akka Projections
-
-* Deploying Reactive
-** xref:services.adoc[]
-*** xref:service-discovery.adoc[]
-*** xref:service-clients.adoc[]
-*** xref:grpc-services.adoc[]
-** xref:internal-and-external-communication.adoc[]
 ** Akka Management
 *** Management
 *** Bootstrap
 *** Service Discovery
+
+* How to run Reactive?
+** xref:services.adoc[]
+*** xref:service-discovery.adoc[]
+*** xref:service-clients.adoc[]
+*** xref:grpc-services.adoc[]
 ** Docker
 ** Kubernetes
 ** Helm
