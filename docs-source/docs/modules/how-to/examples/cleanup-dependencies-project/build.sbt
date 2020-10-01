@@ -1,5 +1,4 @@
-// FIXME once akka 2.6.9 is released
-val AkkaVersion = "2.6.8+71-57fb9e90"
+val AkkaVersion = "2.6.9"
 // tag::remove-akka-persistence-cassandra-version[]
 val AkkaPersistenceCassandraVersion = "1.0.1"
 // end::remove-akka-persistence-cassandra-version[]
