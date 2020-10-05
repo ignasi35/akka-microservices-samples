@@ -6,7 +6,7 @@
 include::partial$include.adoc[]
 
 
-Memory Image is a programming pattern in which data stored on the database is resides in memory. This means data access doesn't require a round-trip to the database. As a consequence, the application code is responsible for:
+Memory Image is a programming pattern in which data stored on the database resides in memory. This means data access doesn't require a round-trip to the database. As a consequence, the application code is responsible for:
 
 1. handling concurrent modification attempts, and 
 2. keeping the consistency across nodes running the application.
