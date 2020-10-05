@@ -51,7 +51,7 @@ jobs:
       name: "Run Antora to create site"
 
     - stage: publish
-      script: scripts/prepareDownloads.sh; scripts/deploy-site.sh
+      script: scripts/prepare-downloads.sh; scripts/deploy-site.sh
       name: "Publish snapshot site"
 
 stages:
