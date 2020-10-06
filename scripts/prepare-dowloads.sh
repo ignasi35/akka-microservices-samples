@@ -7,6 +7,17 @@ declare -r temporal_folder="${PWD}/target/zips"
 
 mkdir -p ${tutorial_attachments}
 
+## Remove Antora tags from codebase
+function removeTags() {
+   pushd ${tutorial_sources}
+   find . -type f -print0 | xargs -0 sed -i "s/\/\/ tag::[^\[]*\[.*\]//g" 
+   find . -type f -print0 | xargs -0 sed -i "s/# tag::[^\[]*\[.*\]//g" 
+   find . -type f -print0 | xargs -0 sed -i "s/\/\/ end::[^\[]*\[.*\]//g" 
+   find . -type f -print0 | xargs -0 sed -i "s/# end::[^\[]*\[.*\]//g" 
+   popd
+}
+
+
 ## Cleanup the temporal folder from previous executions
 function prepareTemporalFolder() {
    rm -rf ${temporal_folder}
@@ -32,6 +43,10 @@ function zipAndAttach() {
    zip -r ${tutorial_attachments}/${zip_name} *
    popd
 }
+
+## Remove the tags used by Antora snippets from 
+## the codebase before zipping
+removeTags
 
 
 ## gRPC service
