@@ -3,7 +3,7 @@
 declare -r tutorial_sources="${PWD}/docs-source/docs/modules/microservices-tutorial/examples"
 declare -r tutorial_attachments="${PWD}/docs-source/docs/modules/microservices-tutorial/assets/attachments"
 
-declare -r temporal_folder="${PWD}target/zips"
+declare -r temporal_folder="${PWD}/target/zips"
 
 mkdir -p ${tutorial_attachments}
 
