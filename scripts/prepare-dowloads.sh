@@ -7,17 +7,25 @@ declare -r temporal_folder="${PWD}/target/zips"
 
 mkdir -p ${tutorial_attachments}
 
+## Cleanup the temporal folder from previous executions
 function prepareTemporalFolder() {
    rm -rf ${temporal_folder}
    mkdir -p ${temporal_folder}
 }
 
+## Copy a folder with some code into the temporal folder. The 
+## copied folder will be renamed to the folder name we want the 
+## user to see when unzipping the file.
+##   source_name -> subfolder in `microservices-tutorial/examples`
+##   target_name ->  folder name the user should see (must not use a numeric prefix of a laguage suffix)
 function fetchProject() {
    source_name=$1
    target_name=$2
    cp -a ${tutorial_sources}/${source_name} ${temporal_folder}/${target_name}
 }
 
+## Zip the contents in $temporal_folder and create the 
+## attachment file (aka, the ZIP file on the appropriate location)
 function zipAndAttach() {
    zip_name=$1
    pushd ${temporal_folder}
