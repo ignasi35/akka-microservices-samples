@@ -15,6 +15,8 @@ To help you deal with these realities, Akka provides:
 * Transparent remote communication between systems and their components — relieving you from writing and maintaining difficult networking code.
 * A clustered, high-availability architecture that is elastic, scales in or out, on demand — enabling you to deliver a truly reactive system.
 
+== Akka
+
 Akka’s use of the actor model provides a level of abstraction that makes it easier to write correct concurrent, parallel and distributed systems. The actor model spans the full set of Akka libraries, providing you with a consistent way of understanding and using them. Thus, Akka offers a depth of integration that you cannot achieve by picking libraries to solve individual problems and trying to piece them together.
 
 Use of actors allows us to:
