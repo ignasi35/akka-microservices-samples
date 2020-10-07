@@ -49,6 +49,12 @@ function zipAndAttach() {
 removeTags
 
 
+## empty codebase (this is a backup option for users 
+## that can't use the .g8 template)
+prepareTemporalFolder
+fetchProject 00-shopping-cart-service-scala shopping-cart-service
+zipAndAttach step-2.zip
+
 ## gRPC service
 prepareTemporalFolder
 fetchProject 01-shopping-cart-service-scala shopping-cart-service
