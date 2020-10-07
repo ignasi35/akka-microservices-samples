@@ -41,5 +41,6 @@ A supervisor strategy is typically defined by the parent actor when it is starti
 
 NOTE: Embracing failure (using, for example, supervision) is one of the {reactive-principles}/principles/embrace-failure.html[Reactive Principles] {reactive-principles}/principles/embrace-failure.html[{tab-icon}, window="tab"]
 
+== Learn more
 
 Learn more about Akka and the Actor Model on the {akka}/typed/guide/actors-intro.html[Akka documentation] {akka}/typed/guide/actors-intro.html[{tab-icon}, window="tab"].
