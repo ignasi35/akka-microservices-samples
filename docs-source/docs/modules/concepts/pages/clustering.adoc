@@ -5,7 +5,7 @@
 
 include::partial$include.adoc[]
 
-If you have a set of actor systems that cooperate to solve some business problem, then you likely want to manage these set of systems in a disciplined way. Akka Cluster gives you the ability to organize these actor systems into a “meta-system” tied together by a membership protocol. In most cases, you want to use the Cluster module instead of using Remoting directly. Clustering provides an additional set of services on top of Remoting that most real world applications need.
+If you have a set of actor systems that cooperate to solve some business problem, then you likely want to manage these set of systems in a disciplined way. Akka Cluster gives you the ability to organize these actor systems into a “meta-system” tied together by a membership protocol.
 
 Challenges the Cluster module solves include the following:
 
