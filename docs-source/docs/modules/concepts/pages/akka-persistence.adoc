@@ -6,7 +6,7 @@
 include::partial$include.adoc[]
 
 
-Just like objects in OOP, actors keep their state in volatile memory. When a system shuts down (gracefully or because of a crash) all data that was in memory is lost. Persistence provides patterns to enable actors to persist events that lead to their current state. Upon startup, events can be replayed to restore the state of the entity hosted by the actor. The event stream can be queried and fed into additional processing pipelines (an external Big Data cluster for example) or alternate views (like reports).
+Just like objects in OOP, actors keep their state in volatile memory. When a system shuts down (gracefully or because of a crash) all data that was in memory is lost. Akka Persistence provides the means to persist an Actor state using Event Sourcing. Upon startup, events can be replayed to restore the state of the entity hosted by the actor. The event stream can be queried and fed into additional processing pipelines (an external Big Data cluster for example) or alternate views (like reports).
 
 Persistence tackles the following challenges:
 
