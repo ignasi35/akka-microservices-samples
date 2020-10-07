@@ -29,8 +29,6 @@ The Sharded Singletons approach to Memory Image prefers https://en.wikipedia.org
 Akka Persistence supports Replicated Images for Event Sourced actors in the {akka}/typed/replicated-eventsourcing.html#relaxing-the-single-writer-principle-for-availability[Replicated Event Sourcing API] {akka}/typed/replicated-eventsourcing.html#relaxing-the-single-writer-principle-for-availability[{tab-icon}, window="tab"].
 
 
+== Learn more
+
 Learn more about the Memory Image pattern at https://www.martinfowler.com/bliki/MemoryImage.html[Martin Fowler's bliki post].
-link to https://principles.reactive.foundation/patterns/isolate-mutations.html
-
-link to https://principles.reactive.foundation/patterns/localize-state.html
-
