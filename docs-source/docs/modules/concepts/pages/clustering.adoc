@@ -5,7 +5,7 @@
 
 include::partial$include.adoc[]
 
-If you have a set of actor systems that cooperate to solve some business problem, then you likely want to manage these set of systems in a disciplined way. While Remoting solves the problem of addressing and communicating with components of remote systems, Clustering gives you the ability to organize these into a “meta-system” tied together by a membership protocol. In most cases, you want to use the Cluster module instead of using Remoting directly. Clustering provides an additional set of services on top of Remoting that most real world applications need.
+If you have a set of actor systems that cooperate to solve some business problem, then you likely want to manage these set of systems in a disciplined way. Akka Cluster gives you the ability to organize these actor systems into a “meta-system” tied together by a membership protocol. In most cases, you want to use the Cluster module instead of using Remoting directly. Clustering provides an additional set of services on top of Remoting that most real world applications need.
 
 Challenges the Cluster module solves include the following:
 
@@ -22,13 +22,13 @@ Sharding helps to solve the problem of distributing a set of actors among member
 
 Challenges that Sharding solves include the following:
 
-* How to model and scale out a large set of stateful entities on a set of systems.
+* How to model and scale out a large set of xref:memory-image-pattern.adoc#sharded_entities[stateful entities] on a set of systems.
 * How to ensure that entities in the cluster are distributed properly so that load is properly balanced across the machines.
 * How to ensure migrating entities from a crashed system without losing the state.
 * How to ensure that an entity does not exist on multiple systems at the same time and hence keeps consistent.
 
 
-== SBR
+== Split Brain Resolver
 
 When operating an Akka cluster you must consider how to handle network partitions (a.k.a. split brain scenarios) and machine crashes (including JVM and hardware failures). This is crucial for correct behavior if you use Cluster Singleton or Cluster Sharding, especially together with xref:akka-persistence.adoc[].
 
