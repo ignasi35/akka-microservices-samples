@@ -10,10 +10,18 @@ mkdir -p ${tutorial_attachments}
 ## Remove Antora tags from codebase
 function removeTags() {
    pushd ${tutorial_sources}
+   
+   ## remove tags from code
    find . -type f -print0 | xargs -0 sed -i "s/\/\/ tag::[^\[]*\[.*\]//g" 
-   find . -type f -print0 | xargs -0 sed -i "s/# tag::[^\[]*\[.*\]//g" 
    find . -type f -print0 | xargs -0 sed -i "s/\/\/ end::[^\[]*\[.*\]//g" 
+   
+   ## remove tags from config
+   find . -type f -print0 | xargs -0 sed -i "s/# tag::[^\[]*\[.*\]//g" 
    find . -type f -print0 | xargs -0 sed -i "s/# end::[^\[]*\[.*\]//g" 
+
+   ## remove call-outs
+   find . -type f -print0 | xargs -0 sed -i "s/\/\/ <[0-9]*>//g" 
+   
    popd
 }
 
