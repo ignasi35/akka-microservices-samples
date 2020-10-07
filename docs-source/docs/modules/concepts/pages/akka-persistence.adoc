@@ -24,4 +24,6 @@ Storage backends for journals and snapshot stores are pluggable in the Akka pers
 
 NOTE: The xref:microservices-tutorial:index.adoc[Implementing Microservices with Akka tutorial] illustrates how to implement an Event Sourced CQRS application with Akka Persistence and the Akka Persistence Cassandra plugin.
 
+== Learn more
+
 Learn more about Akka Persistence on the {akka}/typed/index-persistence.html[Akka docs (Persistence module)] {akka}/typed/index-persistence.html[{tab-icon}, window="tab"].
