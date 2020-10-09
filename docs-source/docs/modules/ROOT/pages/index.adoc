@@ -36,4 +36,3 @@ Some development tasks arise from requirements on existing projects. The xref:ho
 
 include::how-to:partial$listing.adoc[]
 
-**This documentation was last published: {localdate}**
