@@ -1,4 +1,8 @@
-language: scala
+version: ~> 1.0 # needed for imports
+
+import: scala/scala-dev:travis/default.yml
+
+language: java
 services:
   - docker
 
@@ -6,12 +10,14 @@ services:
 git:
   depth: 500
 
+
+env:
+  global:
+    - ADOPTOPENJDK=11
 before_install:
-  # using jabba for custom jdk management
-  - if [ ! -f ~/.jabba/jabba.sh ]; then curl -L -v --retry 5 -o jabba-install.sh https://raw.githubusercontent.com/shyiko/jabba/0.11.2/install.sh && bash jabba-install.sh; fi
-  - . ~/.jabba/jabba.sh
-  - jabba install ${JDK:=adopt@~1.11-0}
-  - jabba use ${JDK:=adopt@~1.11-0}
+  # using sdkman for SDKs management
+  - sdk install sbt 1.3.13
+  - sdk use sbt 1.3.13
 
 jobs:
   include:
@@ -24,7 +30,7 @@ jobs:
     - stage: test
       script:
         - cd docs-source/docs/modules/microservices-tutorial/examples/shopping-analytics-service-scala
-        - sbt -jvm-opts .jvmopts-travis "test; scalafmtCheckAll"
+        - sbt "test; scalafmtCheckAll"
       name: "Shopping analytics service (Scala)"
     - script:
         - cd docs-source/docs/modules/microservices-tutorial/examples/shopping-analytics-service-java
@@ -34,7 +40,7 @@ jobs:
     - script:
         - cd docs-source/docs/modules/microservices-tutorial/examples/shopping-cart-service-scala
         - docker-compose up -d
-        - sbt -jvm-opts .jvmopts-travis "test; scalafmtCheckAll"
+        - sbt "test; scalafmtCheckAll"
       name: "Shopping cart service (Scala)"
     - script:
         - cd docs-source/docs/modules/microservices-tutorial/examples/shopping-cart-service-java
@@ -44,7 +50,7 @@ jobs:
       
     - script:
         - cd docs-source/docs/modules/microservices-tutorial/examples/shopping-order-service-scala
-        - sbt -jvm-opts .jvmopts-travis "test; scalafmtCheckAll"
+        - sbt "test; scalafmtCheckAll"
       name: "Shopping order service (Scala)"
     - script:
         - cd docs-source/docs/modules/microservices-tutorial/examples/shopping-order-service-java
@@ -54,7 +60,7 @@ jobs:
     - script:
         - cd docs-source/docs/modules/microservices-tutorial/examples/01-shopping-cart-service-scala
         - docker-compose up -d
-        - sbt -jvm-opts .jvmopts-travis "test; scalafmtCheckAll"
+        - sbt "test; scalafmtCheckAll"
       name: "01 Shopping cart service (Scala)"
     # - script:
     #     - cd docs-source/docs/modules/microservices-tutorial/examples/01-shopping-cart-service-java
@@ -65,7 +71,7 @@ jobs:
     - script:
         - cd docs-source/docs/modules/microservices-tutorial/examples/02-shopping-cart-service-scala
         - docker-compose up -d
-        - sbt -jvm-opts .jvmopts-travis "test; scalafmtCheckAll"
+        - sbt "test; scalafmtCheckAll"
       name: "02 Shopping cart service (Scala)"
     # - script:
     #     - cd docs-source/docs/modules/microservices-tutorial/examples/02-shopping-cart-service-java
@@ -76,7 +82,7 @@ jobs:
     - script:
         - cd docs-source/docs/modules/microservices-tutorial/examples/03-shopping-cart-service-scala
         - docker-compose up -d
-        - sbt -jvm-opts .jvmopts-travis "test; scalafmtCheckAll"
+        - sbt "test; scalafmtCheckAll"
       name: "03 Shopping cart service (Scala)"
     # - script:
     #     - cd docs-source/docs/modules/microservices-tutorial/examples/03-shopping-cart-service-java
@@ -87,7 +93,7 @@ jobs:
     - script:
         - cd docs-source/docs/modules/microservices-tutorial/examples/04-shopping-cart-service-scala
         - docker-compose up -d
-        - sbt -jvm-opts .jvmopts-travis "test; scalafmtCheckAll"
+        - sbt "test; scalafmtCheckAll"
       name: "04 Shopping cart service (Scala)"
     # - script:
     #     - cd docs-source/docs/modules/microservices-tutorial/examples/04-shopping-cart-service-java
@@ -98,21 +104,20 @@ jobs:
     - script:
         - cd docs-source/docs/modules/microservices-tutorial/examples/05-shopping-cart-service-scala
         - docker-compose up -d
-        - sbt -jvm-opts .jvmopts-travis "test; scalafmtCheckAll"
+        - sbt "test; scalafmtCheckAll"
       name: "05 Shopping cart service (Scala)"
     - script:
         - cd docs-source/docs/modules/microservices-tutorial/examples/05-shopping-cart-service-java
         - docker-compose up -d
         - mvn test
       name: "05 Shopping cart service (Java)"
-
     - script:
         - cd docs-source/docs/modules/how-to/examples/shopping-cart-service-scala
-        - sbt -jvm-opts .jvmopts-travis "test; scalafmtCheckAll"
+        - sbt "test; scalafmtCheckAll"
       name: "Howto example code"
     - script:
         - cd docs-source/docs/modules/how-to/examples/cleanup-dependencies-project
-        - sbt -jvm-opts .jvmopts-travis "test; scalafmtCheckAll"
+        - sbt "test; scalafmtCheckAll"
       name: "Howto cleanup dependencies"
 
     - stage: site
@@ -141,18 +146,10 @@ stages:
 after_failure:
   - docker-compose logs
 
-before_cache:
-  - find $HOME/.ivy2 -name "ivydata-*.properties" -delete
-  - find $HOME/.sbt -name "*.lock" -delete
-
 cache:
   directories:
    - $HOME/.m2
    - $HOME/.ivy2/cache
-   - $HOME/.sbt/boot
-   - $HOME/.sbt/launchers
-   - $HOME/.cache/coursier
-   - $HOME/.jabba
 
 # safelist
 branches:
