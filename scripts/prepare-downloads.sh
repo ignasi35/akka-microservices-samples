@@ -26,7 +26,7 @@ function removeTags() {
 
    ## remove call-outs ("// <3>" and "# <4>")
    find . -type f -print0 | xargs -0 sed -i "s/\/\/ <[0-9]*>//g" 
-   find . -type f -print0 | xargs -0 sed -i "s/# <[0-9]*>//g" 
+   find . -type f -print0 | xargs -0 sed -i "s/#[ ]*<[0-9]*>//g" 
 }
 
 
