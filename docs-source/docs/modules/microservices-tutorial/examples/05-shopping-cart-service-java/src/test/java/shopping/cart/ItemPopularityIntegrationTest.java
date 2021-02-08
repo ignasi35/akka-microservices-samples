@@ -117,14 +117,14 @@ public class ItemPopularityIntegrationTest {
   public void safelyUpdatePopularityCount() throws Exception {
     ClusterSharding sharding = ClusterSharding.get(system);
 
-    final String item = "the-item";
+    final String item = "concurrent-item";
     int cartCount = 100;
     int itemCount = 1;
-    final Duration timeout = Duration.ofSeconds(3);
+    final Duration timeout = Duration.ofSeconds(30);
 
     // Given `item1` is already on the popularity projection DB...
     CompletionStage<ShoppingCart.Summary> rep1 =
-            sharding.entityRefFor(ShoppingCart.ENTITY_KEY, "cart0")
+            sharding.entityRefFor(ShoppingCart.ENTITY_KEY, "concurrent-cart0")
                     .askWithStatus(replyTo -> new ShoppingCart.AddItem(item, itemCount, replyTo), timeout);
 
     TestProbe<Object> probe = testKit.createTestProbe();
@@ -140,13 +140,13 @@ public class ItemPopularityIntegrationTest {
       for (int i = 1; i < cartCount; i++) {
           System.out.print(".");
           CompletionStage<ShoppingCart.Summary> rep =
-                  sharding.entityRefFor(ShoppingCart.ENTITY_KEY, "cart" + i)
+                  sharding.entityRefFor(ShoppingCart.ENTITY_KEY, "concurrent-cart" + i)
                           .askWithStatus(replyTo -> new ShoppingCart.AddItem(item, itemCount, replyTo), timeout);
           rep.toCompletableFuture().get(3, SECONDS);
       }
 
       // ... then the popularity count is 100
-    probe.awaitAssert(
+    probe.awaitAssert(timeout,
         () -> {
           Optional<ItemPopularity> item1Popularity = itemPopularityRepository.findById(item);
           assertTrue(item1Popularity.isPresent());
